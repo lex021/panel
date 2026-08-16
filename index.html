@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>AURORA TEAM</title>
+  
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+
+  <div class="app-root" id="appRoot">
+
+    <!-- Main Content Views Area (Direct full-height container) -->
+    <main class="app-content" id="appContent">
+
+      <!-- ============================================== -->
+      <!-- TAB 1: ПРОФИЛЬ (PROFILE)                       -->
+      <!-- ============================================== -->
+      <section class="tab-view active" id="viewProfile">
+        <div class="view-scroll-container">
+          
+          <!-- Aurora Team Brand Header -->
+          <div class="aurora-hero-header">
+            <div class="aurora-brand-glow">
+            <span class="brand-aurora">FUZERS</span>
+            <span class="brand-team">TEAM</span>
+          </div>
+          </div>
+
+          <!-- Profile Identity Card -->
+          <div class="profile-card-header">
+            <div class="avatar-ring-container">
+              <div class="avatar-glow"></div>
+              <div class="avatar-wrapper" id="userAvatar">
+                <img src="assets/avatar.svg" alt="name" class="avatar-img" id="avatarImg">
+              </div>
+            </div>
+            <h2 class="profile-username" id="profileUsername">name</h2>
+            <div class="profile-id" id="profileUserId">ID 620771081</div>
+            <div class="profile-tag-pill" id="btnPillTag">
+              <span class="tag-label">Тэг:</span>
+              <span class="tag-value" id="currentTagValue">#slarziq</span>
+            </div>
+          </div>
+
+          <!-- Stats Grid: Логов / Дней в команде -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">логов</div>
+              <div class="metric-value" id="metricLogs">48</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">дней в команде</div>
+              <div class="metric-value" id="metricDays">24</div>
+            </div>
+          </div>
+
+          <!-- TON Wallet & Balance Block -->
+          <div class="wallet-card">
+            <div class="wallet-row">
+              <span class="wallet-label">TON-кошелек:</span>
+              <span class="wallet-value" id="tonWalletDisplay">Не указан</span>
+            </div>
+            <div class="wallet-row">
+              <span class="wallet-label">Баланс:</span>
+              <span class="wallet-value font-bold" id="tonBalanceDisplay">0 TON</span>
+            </div>
+            <div class="wallet-row">
+              <span class="wallet-label">Выведено:</span>
+              <span class="wallet-value" id="tonWithdrawnDisplay">0 TON</span>
+            </div>
+
+            <div class="wallet-actions">
+              <button class="btn-primary" id="btnTonWalletAction">
+                Добавить TON-кошелек
+              </button>
+              <button class="btn-secondary" id="btnTonWithdrawAction">
+                Вывести баланс
+              </button>
+            </div>
+          </div>
+
+          <!-- Profile Menu Items -->
+          <div class="menu-group">
+            <div class="menu-item" id="btnChangeTag">
+              <div class="menu-item-left">
+                <div class="menu-icon-box">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                  </svg>
+                </div>
+                <span class="menu-item-title">Изменить тэг</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+
+            <div class="menu-item" id="btnMentors">
+              <div class="menu-item-left">
+                <div class="menu-icon-box">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <span class="menu-item-title">Наставники</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 2: НАСТРОЙКИ (SETTINGS MAIN)               -->
+      <!-- ============================================== -->
+      <section class="tab-view" id="viewSettings">
+        <div class="view-scroll-container">
+          <h1 class="page-title">Настройки</h1>
+
+          <div class="menu-group settings-list">
+            <!-- Item 1: Отстук -->
+            <div class="menu-item" id="navSubLogs">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-bell">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  </svg>
+                </div>
+                <div class="menu-text-stack">
+                  <span class="menu-item-title">Отстук</span>
+                  <span class="menu-item-desc">Подключение чата для логов</span>
+                </div>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+
+            <!-- Item 2: Конфигурации -->
+            <div class="menu-item" id="navSubConfig">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-grid">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
+                </div>
+                <div class="menu-text-stack">
+                  <span class="menu-item-title">Конфигурации</span>
+                  <span class="menu-item-desc">Доп. лог & API</span>
+                </div>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+
+            <!-- Item 3: Звёзды -->
+            <div class="menu-item" id="navSubStars">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-star">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <div class="menu-text-stack">
+                  <span class="menu-item-title">Звёзды</span>
+                  <span class="menu-item-desc">Настройки</span>
+                </div>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+
+            <!-- Item 4: Доступ к инлайну -->
+            <div class="menu-item" id="navSubInline">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-userplus">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <line x1="20" y1="8" x2="20" y2="14"></line>
+                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                  </svg>
+                </div>
+                <div class="menu-text-stack">
+                  <span class="menu-item-title">Доступ к инлайну</span>
+                  <span class="menu-item-desc">Добавь миньона</span>
+                </div>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SUB-PAGE: ДОСТУП К ИНЛАЙНУ                    -->
+      <!-- ============================================== -->
+      <section class="sub-view" id="subViewInline">
+        <div class="view-scroll-container">
+          
+          <!-- Subview Top Header with Back Button -->
+          <div class="sub-top-bar">
+            <button class="btn-sub-back" data-back="subViewInline" title="Назад">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h2 class="sub-top-title">Доступ к инлайну</h2>
+            <div class="sub-top-spacer"></div>
+          </div>
+
+          <p class="section-instruction">
+            Добавь Telegram ID человека — он сможет отправлять инлайн-сообщения через твоих ботов. Свой ID добавлять не нужно.
+          </p>
+          <p class="section-hint">
+            Узнать ID можно в боте <a href="https://t.me/getmy_idbot" target="_blank" class="accent-link" id="linkGetIdBot">@getmy_idbot</a>
+          </p>
+
+          <div class="form-block">
+            <label class="form-label">TELEGRAM ID</label>
+            <input type="text" class="form-input" id="inputMinionId" placeholder="123456789" inputmode="numeric">
+            <button class="btn-primary mt-3" id="btnAddMinion">Добавить</button>
+          </div>
+
+          <!-- List of Minions -->
+          <div class="minions-list" id="minionsContainer">
+            <!-- Dynamically rendered -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SUB-PAGE: ЗВЁЗДЫ                               -->
+      <!-- ============================================== -->
+      <section class="sub-view" id="subViewStars">
+        <div class="view-scroll-container">
+          
+          <!-- Subview Top Header with Back Button -->
+          <div class="sub-top-bar">
+            <button class="btn-sub-back" data-back="subViewStars" title="Назад">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h2 class="sub-top-title">Звёзды</h2>
+            <div class="sub-top-spacer"></div>
+          </div>
+
+          <h2 class="sub-section-title">Получатель звёзд</h2>
+          <p class="sub-section-desc">
+            Звёзды с аккаунта мамонта уйдут реакциями на твой пост.
+          </p>
+
+          <div class="stars-form-card">
+            <div class="form-group">
+              <label class="form-label">ССЫЛКА НА ПОСТ</label>
+              <input type="text" class="form-input" id="inputStarsPost" value="https://t.me/slarzio/2">
+            </div>
+
+            <div class="form-group mt-4">
+              <label class="form-label">СНИМАТЬ ЗВЁЗДЫ</label>
+              <div class="segmented-control" id="segWithdrawStars">
+                <button type="button" class="seg-btn" data-value="false">Не снимать</button>
+                <button type="button" class="seg-btn active" data-value="true">Снимать</button>
+              </div>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class="form-label">КАК СНИМАТЬ</label>
+              <div class="segmented-control" id="segHowWithdraw">
+                <button type="button" class="seg-btn" data-value="balance">С остатком</button>
+                <button type="button" class="seg-btn active" data-value="all">Снимать все</button>
+              </div>
+            </div>
+
+            <p class="stars-help-note" id="starsHelpNote">
+              Снимать все: забираем все ⭐ реакциями на пост, ничего не оставляем.
+            </p>
+
+            <button class="btn-primary mt-4" id="btnSaveStars">Сохранить</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SUB-PAGE: КОНФИГУРАЦИИ                         -->
+      <!-- ============================================== -->
+      <section class="sub-view" id="subViewConfig">
+        <div class="view-scroll-container">
+          
+          <!-- Subview Top Header with Back Button -->
+          <div class="sub-top-bar">
+            <button class="btn-sub-back" data-back="subViewConfig" title="Назад">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h2 class="sub-top-title">Конфигурации</h2>
+            <div class="sub-top-spacer"></div>
+          </div>
+
+          <div class="menu-group">
+            <!-- Item 1: Дополнительный лог with Switch -->
+            <div class="menu-item no-click">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-bell">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  </svg>
+                </div>
+                <div class="menu-text-stack">
+                  <span class="menu-item-title">Дополнительный лог</span>
+                  <span class="menu-item-desc">Код my.telegram.org в отстук</span>
+                </div>
+              </div>
+              <div class="menu-item-right">
+                <label class="ios-switch">
+                  <input type="checkbox" id="switchExtraLog" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Item 2: API ID & HASH -->
+            <div class="menu-item" id="btnOpenApiConfig">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-key">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 2l-2 2m-1.5 1.5L16 7l-1.5-1.5M16 7l-2 2-2-2-4 4a5 5 0 1 0 7 7l4-4v-3l2-2v-3z"></path>
+                  </svg>
+                </div>
+                <div class="menu-text-stack">
+                  <span class="menu-item-title">API ID & HASH</span>
+                  <span class="menu-item-desc">Ключи Telegram API</span>
+                </div>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SUB-PAGE: ОТСТУК                               -->
+      <!-- ============================================== -->
+      <section class="sub-view" id="subViewLogs">
+        <div class="view-scroll-container">
+          
+          <!-- Subview Top Header with Back Button -->
+          <div class="sub-top-bar">
+            <button class="btn-sub-back" data-back="subViewLogs" title="Назад">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h2 class="sub-top-title">Отстук</h2>
+            <div class="sub-top-spacer"></div>
+          </div>
+
+          <div class="info-card-box">
+            <p class="info-card-lead">
+              Перенаправь логи отстука в свой чат — удобно и без спама в ЛС.
+            </p>
+            <ul class="info-bullet-list">
+              <li>Логи идут только в выбранный чат</li>
+              <li>В личку бота ничего не падает</li>
+            </ul>
+          </div>
+
+          <div class="menu-group mt-3">
+            <div class="menu-item" id="btnManageLogs">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-lock">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <span class="menu-item-title">Управление</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 3: ИНФОРМАЦИЯ (INFO MAIN)                  -->
+      <!-- ============================================== -->
+      <section class="tab-view" id="viewInfo">
+        <div class="view-scroll-container">
+          <h1 class="page-title">Информация</h1>
+
+          <div class="menu-group info-list">
+            <!-- Item 1: Отстук -->
+            <div class="menu-item" id="btnInfoLogs">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-bell">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  </svg>
+                </div>
+                <span class="menu-item-title">Отстук</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="ext-arrow">↗</span>
+              </div>
+            </div>
+
+            <!-- Item 2: Правила -->
+            <div class="menu-item" id="navSubRules">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-doc">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                </div>
+                <span class="menu-item-title">Правила</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="chevron-arrow">›</span>
+              </div>
+            </div>
+
+            <!-- Item 3: Мануалы -->
+            <div class="menu-item" id="btnInfoManuals">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-folder">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                </div>
+                <span class="menu-item-title">Мануалы</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="ext-arrow">↗</span>
+              </div>
+            </div>
+
+            <!-- Item 4: Парсер -->
+            <div class="menu-item" id="btnInfoParser">
+              <div class="menu-item-left">
+                <div class="menu-icon-box bg-icon-search">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </div>
+                <span class="menu-item-title">Парсер</span>
+              </div>
+              <div class="menu-item-right">
+                <span class="ext-arrow">↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- SUB-PAGE: ПРАВИЛА (RULES)                      -->
+      <!-- ============================================== -->
+      <section class="sub-view" id="subViewRules">
+        <div class="view-scroll-container">
+          
+          <!-- Subview Top Header with Back Button -->
+          <div class="sub-top-bar">
+            <button class="btn-sub-back" data-back="subViewRules" title="Назад">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h2 class="sub-top-title">Правила</h2>
+            <div class="sub-top-spacer"></div>
+          </div>
+
+          <div class="rules-card">
+            <div class="rules-card-header" id="rulesToggleHeader">
+              <div class="rules-header-title">
+                <span class="rules-icon">📜</span>
+                <span>Правила проекта</span>
+              </div>
+              <span class="rules-chevron" id="rulesChevron">⌄</span>
+            </div>
+
+            <div class="rules-content" id="rulesListContainer">
+              <div class="rule-row">
+                <div class="rule-badge">1</div>
+                <div class="rule-text">
+                  Запрещена реклама, флуд, спам, коммерция, продажа услуг или любых товаров в чате воркеров.
+                </div>
+              </div>
+
+              <div class="rule-row">
+                <div class="rule-badge">2</div>
+                <div class="rule-text">
+                  Запрещено оскорблять других участников: воркеров, админов, модеров, тсов. Не разводите срач и не ведите себя неадекватно.
+                </div>
+              </div>
+
+              <div class="rule-row">
+                <div class="rule-badge">3</div>
+                <div class="rule-text">
+                  Скам или попытки скама воркеров в любом виде — мгновенный бан.
+                </div>
+              </div>
+
+              <div class="rule-row">
+                <div class="rule-badge">4</div>
+                <div class="rule-text">
+                  В чате запрещена отправка 18+ контента — моментальный бан.
+                </div>
+              </div>
+
+              <div class="rules-footer-note">
+                ✨ Соблюдение этих простых правил — залог спокойной и продуктивной работы
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 4: СЕССИИ (SESSIONS)                       -->
+      <!-- ============================================== -->
+      <section class="tab-view" id="viewSessions">
+        <div class="view-scroll-container sessions-center-layout">
+          <h1 class="page-title text-center">Сессии</h1>
+
+          <!-- Mascot Animated Block -->
+          <div class="mascot-container">
+            <div class="mascot-aura"></div>
+            <img src="assets/mascot.svg" alt="Aurora Mascot" class="mascot-img floating-anim">
+          </div>
+
+          <div class="sessions-status-block">
+            <div class="spinner-circle"></div>
+            <p class="sessions-loading-text">Загрузка сессий...</p>
+          </div>
+
+          <!-- Active Sessions Panel -->
+          <div class="active-sessions-panel" id="activeSessionsPanel" style="display: none;">
+            <div class="sessions-header-row">
+              <span class="active-tag-count">Активные боты: <strong id="activeBotsCount">3</strong></span>
+              <button class="btn-refresh-sessions" id="btnRefreshSessions" title="Обновить">↻</button>
+            </div>
+
+            <div id="sessionsListContainer">
+              <!-- Dynamically populated from API -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- TAB 5: КОНКУРС (CONTEST)                       -->
+      <!-- ============================================== -->
+      <section class="tab-view" id="viewContest">
+        <div class="view-scroll-container">
+          <h1 class="page-title">Конкурс</h1>
+
+          <!-- Contest Hero Card -->
+          <div class="contest-hero-card">
+            <div class="contest-badge-pill">🔥 АКТИВНЫЙ ТУРНИР</div>
+            <h2 class="contest-pool-title" id="contestPoolTitle">$25,000 ПРИЗОВОЙ ФОНД</h2>
+            <p class="contest-pool-sub">Среди всех воркеров AURORA TEAM</p>
+            
+            <div class="countdown-row">
+              <div class="countdown-box">
+                <span class="count-val" id="cdDays">04</span>
+                <span class="count-sub">дня</span>
+              </div>
+              <span class="count-colon">:</span>
+              <div class="countdown-box">
+                <span class="count-val" id="cdHours">18</span>
+                <span class="count-sub">час</span>
+              </div>
+              <span class="count-colon">:</span>
+              <div class="countdown-box">
+                <span class="count-val" id="cdMins">32</span>
+                <span class="count-sub">мин</span>
+              </div>
+              <span class="count-colon">:</span>
+              <div class="countdown-box">
+                <span class="count-val" id="cdSecs">15</span>
+                <span class="count-sub">сек</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Current User Standing Card -->
+          <div class="your-standing-card">
+            <div class="standing-left">
+              <div class="standing-rank" id="myStandingRank">#7</div>
+              <div class="standing-info">
+                <div class="standing-user" id="myStandingName">name (Вы)</div>
+                <div class="standing-detail" id="myStandingLogs">48 логов • Приз: $500</div>
+              </div>
+            </div>
+            <div class="standing-tag">В ТОПЕ</div>
+          </div>
+
+          <!-- Leaderboard List -->
+          <div class="leaderboard-title-row">
+            <span class="lb-title">ТОП ВОРКЕРОВ</span>
+            <span class="lb-refresh-info" id="lbRefreshTime">В реальном времени</span>
+          </div>
+
+          <div class="leaderboard-list" id="leaderboardContainer">
+            <!-- Dynamically populated from API -->
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Tab Navigation Bar -->
+    <nav class="bottom-tab-bar" id="bottomTabBar">
+      
+      <!-- Tab 1: Инфо (Отдельный) -->
+      <button class="tab-btn circle-btn" data-tab="viewInfo" id="tabInfo">
+        <div class="tab-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </div>
+        <span class="tab-label">Инфо</span>
+      </button>
+
+      <!-- Слитный блок из 3-х центральных кнопок -->
+      <div class="tab-capsule">
+        <!-- Tab 2: Настройки -->
+        <button class="tab-btn" data-tab="viewSettings" id="tabSettings">
+          <div class="tab-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+          </div>
+          <span class="tab-label">Настройки</span>
+        </button>
+
+        <!-- Tab 3: Профиль (Акцентная) -->
+        <button class="tab-btn active profile-accent-btn" data-tab="viewProfile" id="tabProfile">
+          <div class="tab-icon">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span class="tab-label">Профиль</span>
+        </button>
+
+        <!-- Tab 4: Сессии -->
+        <button class="tab-btn" data-tab="viewSessions" id="tabSessions">
+          <div class="tab-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <span class="tab-label">Сессии</span>
+        </button>
+      </div>
+
+      <!-- Tab 5: Конкурс (Отдельный) -->
+      <button class="tab-btn circle-btn" data-tab="viewContest" id="tabContest">
+        <div class="tab-icon icon-with-badge">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34c3.31-.69 5-3.03 5-6.66V4H5v4c0 3.63 1.69 5.97 5 6.66z"></path>
+          </svg>
+          <span class="tab-badge" id="contestBadge">2</span>
+        </div>
+        <span class="tab-label">Конкурс</span>
+      </button>
+
+    </nav>
+
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODALS & BOTTOM SHEETS                         -->
+  <!-- ============================================== -->
+
+  <!-- Modal 1: Ссылка Teletype / Manuals Confirm -->
+  <div class="modal-overlay" id="modalLinkConfirm">
+    <div class="modal-sheet modal-link-dialog">
+      <h3 class="modal-dialog-title">Открыть ссылку?</h3>
+      <div class="modal-link-box">
+        <span class="modal-link-url" id="modalLinkText">https://teletype.in/@aurora_manuals/fbi4Wst94Ko</span>
+      </div>
+      <div class="modal-dialog-actions">
+        <button class="modal-btn cancel" id="btnCancelLink">Отмена</button>
+        <button class="modal-btn confirm" id="btnConfirmLink">Открыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Добавить / Изменить TON-кошелек -->
+  <div class="modal-overlay" id="modalTonWallet">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h3 class="modal-title">TON-кошелек</h3>
+      <p class="modal-desc">Укажите ваш адрес TON для выплат вознаграждений</p>
+      <div class="modal-body">
+        <label class="form-label">АДРЕС КОШЕЛЬКА</label>
+        <input type="text" class="form-input" id="inputTonAddress" placeholder="EQ... или UQ..." spellcheck="false">
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btnCloseTonModal">Отмена</button>
+        <button class="btn-primary" id="btnSaveTonAddress">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Вывод баланса -->
+  <div class="modal-overlay" id="modalWithdraw">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h3 class="modal-title">Вывод баланса</h3>
+      <div class="modal-body">
+        <div class="withdraw-info-card">
+          <div class="withdraw-row">
+            <span>Доступно к выводу:</span>
+            <strong id="withdrawAvailable">0 TON</strong>
+          </div>
+          <div class="withdraw-row">
+            <span>Кошелек:</span>
+            <span id="withdrawWalletTarget">Не указан</span>
+          </div>
+        </div>
+        <label class="form-label mt-3">СУММА (TON)</label>
+        <input type="number" class="form-input" id="inputWithdrawAmount" placeholder="Минимум 1 TON" min="1" step="0.1">
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btnCloseWithdrawModal">Отмена</button>
+        <button class="btn-primary" id="btnSubmitWithdraw">Запросить вывод</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Изменить тэг -->
+  <div class="modal-overlay" id="modalChangeTag">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h3 class="modal-title">Смена тэга воркера</h3>
+      <p class="modal-desc">Тэг используется для отслеживания логов в системе</p>
+      <div class="modal-body">
+        <label class="form-label">НОВЫЙ ТЭГ</label>
+        <input type="text" class="form-input" id="inputNewTag" placeholder="#teg">
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btnCloseTagModal">Отмена</button>
+        <button class="btn-primary" id="btnSaveNewTag">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Наставники -->
+  <div class="modal-overlay" id="modalMentors">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h3 class="modal-title">Наставники AURORA</h3>
+      <p class="modal-desc">Обращайтесь к наставникам по любым рабочим вопросам</p>
+      <div class="mentors-list">
+        <div class="mentor-item">
+          <div class="mentor-avatar">👑</div>
+          <div class="mentor-info">
+            <div class="mentor-name">@aurora_lead</div>
+            <div class="mentor-role">Главный куратор • 24/7</div>
+          </div>
+          <a href="https://t.me/aurora_lead" target="_blank" class="btn-contact-mentor">Написать</a>
+        </div>
+        <div class="mentor-item">
+          <div class="mentor-avatar">⚡</div>
+          <div class="mentor-info">
+            <div class="mentor-name">@support_slarz</div>
+            <div class="mentor-role">Технический саппорт</div>
+          </div>
+          <a href="https://t.me/support_slarz" target="_blank" class="btn-contact-mentor">Написать</a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary full-width" id="btnCloseMentors">Понятно</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6: API ID & Hash Settings -->
+  <div class="modal-overlay" id="modalApiConfig">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h3 class="modal-title">Telegram API Keys</h3>
+      <p class="modal-desc">Ключи Telegram API с сайта my.telegram.org</p>
+      <div class="modal-body">
+        <label class="form-label">API_ID</label>
+        <input type="text" class="form-input" id="inputApiId" placeholder="20485921">
+        <label class="form-label mt-3">API_HASH</label>
+        <input type="text" class="form-input" id="inputApiHash" placeholder="c89283f982b09a471b6928e1...">
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btnCloseApiModal">Отмена</button>
+        <button class="btn-primary" id="btnSaveApiConfig">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 7: Управление Отстуком -->
+  <div class="modal-overlay" id="modalLogSettings">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <h3 class="modal-title">Управление отстуком</h3>
+      <p class="modal-desc">Настройка чата для пересылки уведомлений о логах</p>
+      <div class="modal-body">
+        <label class="form-label">ID ЧАТА / КАНАЛА</label>
+        <input type="text" class="form-input" id="inputChatId" placeholder="-100192847192">
+        <label class="form-label mt-3">ID ТЕМЫ / FORUM TOPIC (ОПЦИОНАЛЬНО)</label>
+        <input type="text" class="form-input" id="inputThreadId" placeholder="7">
+        <button class="btn-secondary full-width mt-3" id="btnTestLog">🚀 Отправить тестовый лог</button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btnCloseLogSettings">Отмена</button>
+        <button class="btn-primary" id="btnSaveLogSettings">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

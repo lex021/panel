@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <radialGradient id="bodyGrad" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#ffe642"/>
+      <stop offset="70%" stop-color="#ffb703"/>
+      <stop offset="100%" stop-color="#fb8500"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#52b788"/>
+      <stop offset="100%" stop-color="#2d6a4f"/>
+    </linearGradient>
+    <linearGradient id="flowerPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff70a6"/>
+      <stop offset="100%" stop-color="#e01a4f"/>
+    </linearGradient>
+    <linearGradient id="flowerPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c77dff"/>
+      <stop offset="100%" stop-color="#7b2cbf"/>
+    </linearGradient>
+    <linearGradient id="flowerCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4cc9f0"/>
+      <stop offset="100%" stop-color="#4361ee"/>
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a0ca3"/>
+      <stop offset="100%" stop-color="#7209b7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Mascot Body -->
+  <g class="mascot-body-group">
+    <!-- Main Body Capsule -->
+    <ellipse cx="100" cy="115" rx="52" ry="56" fill="url(#bodyGrad)" stroke="#222226" stroke-width="3"/>
+    
+    <!-- Belly / highlights -->
+    <ellipse cx="100" cy="122" rx="36" ry="40" fill="#fff3b0" opacity="0.4"/>
+
+    <!-- Cute Arms / Hands -->
+    <ellipse cx="44" cy="120" rx="10" ry="16" transform="rotate(-20 44 120)" fill="url(#bodyGrad)" stroke="#222226" stroke-width="2.5"/>
+    <ellipse cx="156" cy="120" rx="10" ry="16" transform="rotate(20 156 120)" fill="url(#bodyGrad)" stroke="#222226" stroke-width="2.5"/>
+
+    <!-- Big Tropical Sunglasses -->
+    <!-- Glasses Strap -->
+    <path d="M 44 95 Q 100 80 156 95" stroke="#1f1f24" stroke-width="7" fill="none" stroke-linecap="round"/>
+    
+    <!-- Left Lens Frame -->
+    <circle cx="78" cy="98" r="22" fill="#121214" stroke="#e0e0e0" stroke-width="3.5"/>
+    <circle cx="78" cy="98" r="18" fill="url(#glassGrad)"/>
+    <!-- Glass Glare Left -->
+    <path d="M 68 88 Q 84 88 88 102" stroke="#ffffff" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <circle cx="72" cy="106" r="2.5" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Right Lens Frame -->
+    <circle cx="122" cy="98" r="22" fill="#121214" stroke="#e0e0e0" stroke-width="3.5"/>
+    <circle cx="122" cy="98" r="18" fill="url(#glassGrad)"/>
+    <!-- Glass Glare Right -->
+    <path d="M 112 88 Q 128 88 132 102" stroke="#ffffff" stroke-width="2.5" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <circle cx="116" cy="106" r="2.5" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Bridge -->
+    <rect x="96" y="95" width="8" height="5" rx="2" fill="#e0e0e0"/>
+
+    <!-- Smile / Cheek -->
+    <path d="M 90 134 Q 100 144 110 134" stroke="#a44200" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="68" cy="126" r="6" fill="#ff70a6" opacity="0.6"/>
+    <circle cx="132" cy="126" r="6" fill="#ff70a6" opacity="0.6"/>
+
+    <!-- Hawaiian / Flower Wreath (Tiara) -->
+    <!-- Leaves -->
+    <path d="M 60 70 C 50 60, 45 45, 55 45 C 65 45, 68 55, 60 70 Z" fill="url(#leafGrad)"/>
+    <path d="M 140 70 C 150 60, 155 45, 145 45 C 135 45, 132 55, 140 70 Z" fill="url(#leafGrad)"/>
+    <path d="M 90 55 C 85 40, 95 32, 100 32 C 105 32, 115 40, 110 55 Z" fill="url(#leafGrad)"/>
+
+    <!-- Flower 1: Pink Left -->
+    <g transform="translate(60, 66)">
+      <circle cx="-6" cy="0" r="6" fill="url(#flowerPink)"/>
+      <circle cx="6" cy="0" r="6" fill="url(#flowerPink)"/>
+      <circle cx="0" cy="-6" r="6" fill="url(#flowerPink)"/>
+      <circle cx="0" cy="6" r="6" fill="url(#flowerPink)"/>
+      <circle cx="0" cy="0" r="4.5" fill="#ffe642"/>
+    </g>
+
+    <!-- Flower 2: Purple Middle Left -->
+    <g transform="translate(85, 56)">
+      <circle cx="-6" cy="0" r="6.5" fill="url(#flowerPurple)"/>
+      <circle cx="6" cy="0" r="6.5" fill="url(#flowerPurple)"/>
+      <circle cx="0" cy="-6" r="6.5" fill="url(#flowerPurple)"/>
+      <circle cx="0" cy="6" r="6.5" fill="url(#flowerPurple)"/>
+      <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+    </g>
+
+    <!-- Flower 3: Cyan Center Right -->
+    <g transform="translate(115, 56)">
+      <circle cx="-6" cy="0" r="6.5" fill="url(#flowerCyan)"/>
+      <circle cx="6" cy="0" r="6.5" fill="url(#flowerCyan)"/>
+      <circle cx="0" cy="-6" r="6.5" fill="url(#flowerCyan)"/>
+      <circle cx="0" cy="6" r="6.5" fill="url(#flowerCyan)"/>
+      <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+    </g>
+
+    <!-- Flower 4: Orange/Pink Right -->
+    <g transform="translate(140, 66)">
+      <circle cx="-6" cy="0" r="6" fill="url(#flowerPink)"/>
+      <circle cx="6" cy="0" r="6" fill="url(#flowerPink)"/>
+      <circle cx="0" cy="-6" r="6" fill="url(#flowerPink)"/>
+      <circle cx="0" cy="6" r="6.5" fill="url(#flowerPink)"/>
+      <circle cx="0" cy="0" r="4.5" fill="#ffe642"/>
+    </g>
+
+    <!-- Cute Hawaiian Skirt / Belt at bottom -->
+    <g transform="translate(0, 160)">
+      <path d="M 68 0 L 64 16 L 74 2" fill="#52b788"/>
+      <path d="M 78 0 L 76 18 L 86 2" fill="#2d6a4f"/>
+      <path d="M 90 0 L 92 19 L 98 2" fill="#52b788"/>
+      <path d="M 102 0 L 108 19 L 110 2" fill="#2d6a4f"/>
+      <path d="M 114 0 L 124 18 L 122 2" fill="#52b788"/>
+      <path d="M 126 0 L 136 16 L 132 2" fill="#2d6a4f"/>
+    </g>
+
+    <!-- Feet -->
+    <ellipse cx="82" cy="176" rx="12" ry="6" fill="#fb8500" stroke="#222226" stroke-width="2"/>
+    <ellipse cx="118" cy="176" rx="12" ry="6" fill="#fb8500" stroke="#222226" stroke-width="2"/>
+  </g>
+</svg>
