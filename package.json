@@ -1,0 +1,14 @@
+{
+  "name": "aurora-panel",
+  "version": "1.0.0",
+  "description": "Telegram Mini App Panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": "18.x"
+  }
+}
