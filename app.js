@@ -197,6 +197,16 @@ class RealtimeStore {
     this.init();
   }
 
+  // Новый метод для синхронизации личности из Telegram
+  applyTelegramIdentity() {
+    if (tg?.initDataUnsafe?.user) {
+      const u = tg.initDataUnsafe.user;
+      this.state.user.username = u.username || `${u.first_name} ${u.last_name || ''}`.trim();
+      this.state.user.userId = String(u.id);
+      if (u.photo_url) this.state.user.photoUrl = u.photo_url;
+    }
+  }
+
   async init() {
     await this.fetchInitialData();
     this.initSSE();
@@ -208,6 +218,7 @@ class RealtimeStore {
       if (res.ok) {
         const data = await res.json();
         this.state = { ...this.state, ...data };
+        this.applyTelegramIdentity(); // Гарантируем приоритет данных TG
         if (window.app) window.app.renderAll();
       }
     } catch (e) {
@@ -221,6 +232,7 @@ class RealtimeStore {
       
       es.addEventListener('user_updated', (e) => {
         this.state.user = JSON.parse(e.data);
+        this.applyTelegramIdentity(); // Применяем данные TG после обновления с сервера
         if (window.app) window.app.renderProfile();
       });
 
