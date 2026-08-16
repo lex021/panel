@@ -15,7 +15,7 @@ const DATA_FILE = path.join(__dirname, 'data.json');
 const DEFAULT_DATA = {
   user: {
     username: 'name',
-    userId: '620771081',
+    userId: '0000000',
     tag: '#teg',
     logsCount: 48,
     daysInTeam: 24,
@@ -434,6 +434,6 @@ setInterval(() => {
 }, 10000);
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`\n🚀 AURORA TEAM Server running at http://localhost:${PORT}`);
+  console.log(`\n🚀 FUZERS TEAM PANEL Server running at http://localhost:${PORT}`);
   console.log(`📱 Real-time Telegram Mini App Backend active with SSE support\n`);
 });
