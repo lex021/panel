@@ -44,10 +44,10 @@
               </div>
             </div>
             <h2 class="profile-username" id="profileUsername">name</h2>
-            <div class="profile-id" id="profileUserId">ID 620771081</div>
+            <div class="profile-id" id="profileUserId">ID name</div>
             <div class="profile-tag-pill" id="btnPillTag">
               <span class="tag-label">Тэг:</span>
-              <span class="tag-value" id="currentTagValue">#slarziq</span>
+              <span class="tag-value" id="currentTagValue">#name</span>
             </div>
           </div>
 
@@ -242,7 +242,7 @@
 
           <div class="form-block">
             <label class="form-label" for="inputMinionId">TELEGRAM ID</label>
-            <input type="text" class="form-input" id="inputMinionId" placeholder="123456789" inputmode="numeric">
+            <input type="text" class="form-input" id="inputMinionId" placeholder="123456789" inputmode="numeric" aria-label="Telegram ID пользователя">
             <button class="btn-primary mt-3" id="btnAddMinion">Добавить</button>
           </div>
 
@@ -278,7 +278,7 @@
           <div class="stars-form-card">
             <div class="form-group">
               <label class="form-label" for="inputStarsPost">ССЫЛКА НА ПОСТ</label>
-              <input type="text" class="form-input" id="inputStarsPost" value="https://t.me/slarzio/2">
+              <input type="text" class="form-input" id="inputStarsPost" value="https://t.me/slarzio/2" aria-label="Ссылка на пост для звёзд">
             </div>
 
             <div class="form-group mt-4">
@@ -340,7 +340,7 @@
               </div>
               <div class="menu-item-right">
                 <label class="ios-switch" for="switchExtraLog">
-                  <input type="checkbox" id="switchExtraLog" checked>
+                  <input type="checkbox" id="switchExtraLog" checked aria-label="Включить дополнительный лог">
                   <span class="slider"></span>
                 </label>
               </div>
@@ -753,7 +753,7 @@
       <p class="modal-desc">Укажите ваш адрес TON для выплат вознаграждений</p>
       <div class="modal-body">
         <label class="form-label" for="inputTonAddress">АДРЕС КОШЕЛЬКА</label>
-        <input type="text" class="form-input" id="inputTonAddress" placeholder="EQ... или UQ..." spellcheck="false">
+        <input type="text" class="form-input" id="inputTonAddress" placeholder="EQ... или UQ..." spellcheck="false" aria-label="Адрес TON кошелька">
       </div>
       <div class="modal-footer">
         <button class="btn-secondary" id="btnCloseTonModal">Отмена</button>
@@ -779,7 +779,7 @@
           </div>
         </div>
         <label class="form-label mt-3" for="inputWithdrawAmount">СУММА (TON)</label>
-        <input type="number" class="form-input" id="inputWithdrawAmount" placeholder="Минимум 1 TON" min="1" step="0.1">
+        <input type="number" class="form-input" id="inputWithdrawAmount" placeholder="Минимум 1 TON" min="1" step="0.1" aria-label="Сумма вывода в TON">
       </div>
       <div class="modal-footer">
         <button class="btn-secondary" id="btnCloseWithdrawModal">Отмена</button>
@@ -796,7 +796,7 @@
       <p class="modal-desc">Тэг используется для отслеживания логов в системе</p>
       <div class="modal-body">
         <label class="form-label" for="inputNewTag">НОВЫЙ ТЭГ</label>
-        <input type="text" class="form-input" id="inputNewTag" placeholder="#teg">
+        <input type="text" class="form-input" id="inputNewTag" placeholder="#teg" aria-label="Новый тэг воркера">
       </div>
       <div class="modal-footer">
         <button class="btn-secondary" id="btnCloseTagModal">Отмена</button>
@@ -843,9 +843,9 @@
       <p class="modal-desc">Ключи Telegram API с сайта my.telegram.org</p>
       <div class="modal-body">
         <label class="form-label" for="inputApiId">API_ID</label>
-        <input type="text" class="form-input" id="inputApiId" placeholder="20485921">
+        <input type="text" class="form-input" id="inputApiId" placeholder="20485921" aria-label="API ID">
         <label class="form-label mt-3" for="inputApiHash">API_HASH</label>
-        <input type="text" class="form-input" id="inputApiHash" placeholder="c89283f982b09a471b6928e1...">
+        <input type="text" class="form-input" id="inputApiHash" placeholder="c89283f982b09a471b6928e1..." aria-label="API HASH">
       </div>
       <div class="modal-footer">
         <button class="btn-secondary" id="btnCloseApiModal">Отмена</button>
@@ -862,9 +862,9 @@
       <p class="modal-desc">Настройка чата для пересылки уведомлений о логах</p>
       <div class="modal-body">
         <label class="form-label" for="inputChatId">ID ЧАТА / КАНАЛА</label>
-        <input type="text" class="form-input" id="inputChatId" placeholder="-100192847192">
+        <input type="text" class="form-input" id="inputChatId" placeholder="-100192847192" aria-label="ID чата для логов">
         <label class="form-label mt-3" for="inputThreadId">ID ТЕМЫ / FORUM TOPIC (ОПЦИОНАЛЬНО)</label>
-        <input type="text" class="form-input" id="inputThreadId" placeholder="7">
+        <input type="text" class="form-input" id="inputThreadId" placeholder="7" aria-label="ID темы (форума)">
         <button class="btn-secondary full-width mt-3" id="btnTestLog">🚀 Отправить тестовый лог</button>
       </div>
       <div class="modal-footer">
