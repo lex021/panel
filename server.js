@@ -30,7 +30,7 @@ const DEFAULT_DATA = {
     '5227767831'
   ],
   stars: {
-    postUrl: 'https://t.me/slarzio/2',
+    postUrl: 'https://t.me/name/1',
     withdrawStars: true,
     howWithdraw: 'all' // 'all' or 'balance'
   },
@@ -66,7 +66,7 @@ const DEFAULT_DATA = {
     },
     {
       id: 3,
-      bot: '@slarz_bot',
+      bot: '@name_bot',
       sessionName: 'Сессия #3',
       location: 'DE, Frankfurt',
       os: 'Android 14',

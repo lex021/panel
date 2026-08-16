@@ -166,7 +166,7 @@ class RealtimeStore {
       },
       minions: ['8100791171', '8321020721', '8058235111', '5227767831'],
       stars: {
-        postUrl: 'https://t.me/slarzio/2',
+        postUrl: 'https://t.me/name/1',
         withdrawStars: true,
         howWithdraw: 'all'
       },
@@ -740,7 +740,7 @@ class UIController {
       : [
           { bot: '@X9aurorabot', sessionName: 'Сессия #1', location: 'NL, Amsterdam', os: 'iOS 18.7', ip: '213.111.139.195', ping: 28 },
           { bot: '@alprozalameilfitness', sessionName: 'Сессия #2', location: 'US, Ashburn', os: 'iOS 18.7', ip: '195.181.173.212', ping: 44 },
-          { bot: '@slarz_bot', sessionName: 'Сессия #3', location: 'DE, Frankfurt', os: 'Android 14', ip: '188.114.97.12', ping: 32 }
+          { bot: '@name_bot', sessionName: 'Сессия #3', location: 'DE, Frankfurt', os: 'Android 14', ip: '188.114.97.12', ping: 32 }
         ];
 
     if (countEl) countEl.textContent = sessions.length;

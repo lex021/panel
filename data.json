@@ -1,8 +1,8 @@
 {
   "user": {
-    "username": "slrzQ",
+    "username": "name",
     "userId": "620771081",
-    "tag": "#р",
+    "tag": "#teg",
     "logsCount": 48,
     "daysInTeam": 24,
     "tonWallet": "",
@@ -16,7 +16,7 @@
     "5227767831"
   ],
   "stars": {
-    "postUrl": "https://t.me/slarzio/2",
+    "postUrl": "https://t.me/name/1",
     "withdrawStars": false,
     "howWithdraw": "all"
   },
@@ -52,7 +52,7 @@
     },
     {
       "id": 3,
-      "bot": "@slarz_bot",
+      "bot": "@name_bot",
       "sessionName": "Сессия #3",
       "location": "DE, Frankfurt",
       "os": "Android 14",
