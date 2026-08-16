@@ -1214,7 +1214,7 @@ input:checked + .slider::before {
 /* BOTTOM NAVIGATION TAB BAR */
 .bottom-tab-bar {
   position: fixed;
-  bottom: calc(20px + var(--safe-area-bottom));
+  bottom: calc(10px + var(--safe-area-bottom));
   left: 50%;
   transform: translateX(-50%);
   width: auto;
